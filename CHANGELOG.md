@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v. 2.1
+
+- Added `textColor` property to `MGCStandardEventView` to allow customizing text color independently of the background color
+
 ## v. 2.0
 
 - Deployment target is now iOS 8.0
