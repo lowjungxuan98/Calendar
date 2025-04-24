@@ -50,6 +50,7 @@ static CGFloat kSpace = 2;
 		self.contentMode = UIViewContentModeRedraw;
 		
 		_color = [UIColor blackColor];
+		_textColor = nil; // nil means use the color property for text
 		_style = MGCStandardEventViewStylePlain|MGCStandardEventViewStyleSubtitle;
 		_font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
 		_leftBorderView = [[UIView alloc]initWithFrame:CGRectZero];
@@ -94,8 +95,8 @@ static CGFloat kSpace = 2;
 	//style.lineBreakMode = NSLineBreakByTruncatingMiddle;
 	[as addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, as.length)];
 	
-	UIColor *color = self.selected ? [UIColor whiteColor] : self.color;
-	[as addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, as.length)];
+	UIColor *textColor = self.selected ? [UIColor whiteColor] : (self.textColor ?: self.color);
+	[as addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0, as.length)];
 	
 	self.attrString = as;
 }
@@ -182,6 +183,7 @@ static CGFloat kSpace = 2;
 	cell.subtitle = self.subtitle;
 	cell.detail = self.detail;
 	cell.color = self.color;
+	cell.textColor = self.textColor;
 	cell.style = self.style;
 	
 	return cell;

@@ -61,6 +61,9 @@ typedef NS_OPTIONS(NSUInteger, MGCStandardEventViewStyle) {
 /*! The color is used for background or text, depending on the style. */
 @property (nonatomic) UIColor *color;
 
+/*! The text color of the event. If nil, uses color property for text. */
+@property (nonatomic) UIColor *textColor;
+
 /*! Style of the view. */
 @property (nonatomic) MGCStandardEventViewStyle style;
 
